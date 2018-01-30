@@ -1,0 +1,75 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: triest
+ * Date: 05.01.2018
+ * Time: 14:02
+ */
+
+
+
+
+// module/Album/view/album/album/add.phtml:
+$form = $this->form;
+$form->get('title')->setAttributes([
+    'class'=>'form-control',
+    'placeholder'=>'Enter post title here'
+]);
+$form->setAttribute('action', $this->url('post', ['action' => 'add']));
+$form->prepare();
+$this->headTitle($title);
+
+$form->get('desc')->setAttributes([
+    'class'=>'form-control',
+    'placeholder'=>'Type desc here',
+    'rows'=>6
+]);
+$form->get('text')->setAttributes([
+    'class'=>'form-control',
+    'placeholder'=>'Type content here',
+    'rows'=>24
+]);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+
+
+
+<div class="row">
+    <div class="col-md-6">
+        <?= $this->form()->openTag($form); ?>
+
+        <div class="form-group">
+            <?= $this->formLabel($form->get('title')); ?>
+            <?= $this->formElement($form->get('title')); ?>
+            <?= $this->formElementErrors($form->get('title')); ?>
+
+        </div>
+
+        <div class="form-group">
+            <?= $this->formLabel($form->get('desc')); ?>
+            <br>
+            <?= $this->formElement($form->get('desc')); ?>
+            <?= $this->formElementErrors($form->get('desc')); ?>
+            <?= $this->formElementErrors($form->get('desc')); ?>
+        </div>
+
+        <div class="form-group">
+            <?= $this->formLabel($form->get('text')); ?>
+            <br>
+            <?= $this->formElement($form->get('text')); ?>
+            <?= $this->formElementErrors($form->get('text')); ?>
+
+        </div>
+
+
+
+        <?= $this->formElement($form->get('submit')); ?>
+        <br><br>
+
+
+    </div>
+    <div class="col-md-6">
+        <a class="btn btn-primary  active" href="<?= $this->url('post', ['action' => 'index']) ?>" role="button">К списку статей </a>
+    </div>
+
+</div>

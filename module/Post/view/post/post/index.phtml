@@ -1,0 +1,45 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: triest
+ * Date: 05.01.2018
+ * Time: 13:47
+ */
+
+$title = 'My post';
+$this->headTitle($title);
+?>
+
+
+
+<br><br>
+
+     <!--   <th>Disc&nbsp;</th>-->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+        <div class="col-sm-4">
+    <?php foreach ($posts as $post) : ?>
+
+        <b><?= $this->escapeHtml($post->title) ?></b>
+         <br>
+           <?= $this->escapeHtml($post->desc) ?>
+            <br>
+        <a href="<?= $this->url('post', ['action' => 'view', 'id' => $post->id]) ?>">Показать статью полностью</a>
+        <br>
+
+        <hr>
+    <?php endforeach; ?>
+        </div>
+        </div>
+        <!-- Side Widget -->
+        <div class="card my-4">
+            <div class="card-body">
+                <a class="btn btn-primary  active" href="<?= $this->url('post', ['action' => 'add']) ?>" role="button">Добавить статью </a>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+

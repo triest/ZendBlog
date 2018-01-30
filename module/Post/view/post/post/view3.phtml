@@ -1,0 +1,36 @@
+<?php
+
+
+
+$this->headTitle($post->title);
+?>
+
+
+
+<a href="
+    <?= $this->url('application', ['action'=>'index']); ?>">
+
+</a>
+
+
+
+<hr>
+
+<a name="comment"></a>
+<h3><b><?= $this->escapeHtml($post->title) ?></b></h3>
+
+<div class="row">
+    <div class="col-md-8">
+        <br>
+        <?= $this->escapeHtml($post->text) ?>
+    </div>
+
+</div>
+<br>
+<a href="<?= $this->url('post', ['action' => 'delete', 'id' => $post->id]) ?>">Delete</a><br>
+<a href="<?= $this->url('post', ['action' => 'edit', 'id' => $post->id]) ?>">Edit</a><br>
+<a class="btn btn-primary  active" href="<?= $this->url('post', ['action' => 'index']) ?>" role="button">К списку статей </a>
+
+
+
+

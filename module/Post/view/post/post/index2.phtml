@@ -1,0 +1,31 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: triest
+ * Date: 05.01.2018
+ * Time: 13:47
+ */
+
+$title = 'My posts';
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<p>
+    <a href="<?= $this->url('post', ['action' => 'add']) ?>">Add new post</a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>Post</th>
+        <th>Text</th>
+        <th>&nbsp;</th>
+    </tr>
+    <?php foreach ($posts as $post) : ?>
+        <tr>
+            <td><?= $this->escapeHtml($post->title) ?></td>
+            <td><?= $this->escapeHtml($post->text) ?></td>
+
+        </tr>
+    <?php endforeach; ?>
+
+</table>
